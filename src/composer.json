@@ -1,0 +1,89 @@
+{
+  "name": "custom/safari",
+  "description": "Website kvetinysafari.cz",
+  "license": "proprietary",
+  "type": "project",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "path",
+      "url": "/root/custom/themes/kvetinysafari",
+      "options": {
+        "symlink": false
+      }
+    },
+    {
+      "type": "path",
+      "url": "/root/custom/themes/sperkysafari",
+      "options": {
+        "symlink": false
+      }
+    }
+  ],
+  "require": {
+    "drupal/core-composer-scaffold": "^8.8",
+    "drupal/core-recommended": "^8.8",
+    "drupal/csp": "^1.10",
+    "drupal/ctools": "^3.2",
+    "drupal/file_mdm": "^2.0",
+    "drupal/fontawesome": "^2.15",
+    "drupal/google_analytics": "^3.0",
+    "drupal/pathauto": "^1.6",
+    "drupal/image_effects": "^3.0",
+    "drupal/seckit": "^1.2",
+    "drupal/token": "^1.6",
+    "drupal/adminimal_theme": "^1.5",
+    "custom-theme/kvetinysafari": "^1.0.0",
+    "custom-theme/sperkysafari": "^1.0.0",
+    "drush/drush": "^10.2.2"
+  },
+  "require-dev": {
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "allowed-packages": [
+        "drupal/core"
+      ],
+      "locations": {
+        "web-root": "www/"
+      }
+    },
+    "installer-paths": {
+      "www/core": [
+        "type:drupal-core"
+      ],
+      "www/libraries/{$name}": [
+        "type:drupal-library"
+      ],
+      "www/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ],
+      "www/profiles/contrib/{$name}": [
+        "type:drupal-profile"
+      ],
+      "www/themes/contrib/{$name}": [
+        "type:drupal-theme"
+      ],
+      "drush/Commands/contrib/{$name}": [
+        "type:drupal-drush"
+      ],
+      "www/modules/custom/{$name}": [
+        "type:drupal-custom-module"
+      ],
+      "www/themes/custom/{$name}": [
+        "type:drupal-custom-theme"
+      ]
+    }
+  }
+}

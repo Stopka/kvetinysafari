@@ -1,0 +1,11 @@
+{
+    "name": "custom-theme/sperkysafari",
+    "type": "drupal-custom-theme",
+    "version": "1.0.0",
+    "description": "sperky.kvetinysafari.cz custom theme",
+    "homepage": "http://drupal.org/project/bootstrap_sass",
+    "license": "GPL-2.0+",
+    "require": {
+        "drupal/bootstrap_barrio": "^4.8.0"
+    }
+}

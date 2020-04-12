@@ -1,0 +1,15 @@
+ # Set default values for all following accounts.
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+# logfile        /var/log/msmtp.log
+
+account        lms
+host           <host>
+port           <port>
+user           <user>
+from           <from>
+password       <password>
+
+account default : lms

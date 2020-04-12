@@ -1,0 +1,49 @@
+version: "2.4"
+x-logging:
+  &default-logging
+  driver: "json-file"
+  options:
+    max-size: "1M"
+    max-file: "10"
+services:
+  safari-mysql:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=${SAFARI_MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${SAFARI_MYSQL_KVETINY_DATABASE}
+      - MYSQL_USER=${SAFARI_MYSQL_KVETINY_USER}
+      - MYSQL_PASSWORD=${SAFARI_MYSQL_KVETINY_PASSWORD}
+    volumes:
+      - safari-mysql-data:/var/lib/mysql
+    networks:
+      safari-mysql:
+        aliases:
+          - ${SAFARI_MYSQL_HOST}
+    restart: always
+    ports:
+      - 3306:3306
+    logging: *default-logging
+  safari:
+    image: safari/drupal:8
+    build:
+      context: ./
+      #target: dev
+    networks:
+      - safari-mysql
+    environment:
+      - REMOTE=${SAFARI_REMOTE}
+      - MAIL_HOST=${SAFARI_MAIL_HOST}
+      - MAIL_PORT=${SAFARI_MAIL_PORT}
+      - MAIL_USER=${SAFARI_MAIL_USER}
+      - MAIL_FROM=${SAFARI_MAIL_FROM}
+      - MAIL_PASS=${SAFARI_MAIL_PASSWORD}
+    ports:
+      - 80:80
+    volumes:
+      - safari-sites:/srv/www/sites
+    logging: *default-logging
+volumes:
+  safari-mysql-data:
+  safari-sites:
+networks:
+  safari-mysql:
