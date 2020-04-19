@@ -1,6 +1,6 @@
 {
-  "name": "barrio_sass",
-  "version": "8.4.1",
+  "name": "safari",
+  "version": "1.0.0",
   "description": "Barrio SASS implementation",
   "main": "index.js",
   "scripts": {

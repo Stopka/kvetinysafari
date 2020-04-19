@@ -131,7 +131,27 @@ RUN \
 
 FROM build AS prod
 COPY --from=libs /srv ./
-RUN rm -rf ./node_modules composer* package* yarn* /root/custom
+RUN \
+  rm -rf  \
+    ./node_modules \
+    composer* \
+    package* \
+    yarn* \
+    /root/custom \
+    /srv/www/themes/custom/kvetinysafari/node_modules \
+    /srv/www/themes/custom/kvetinysafari/scss \
+    /srv/www/themes/custom/kvetinysafari/composer* \
+    /srv/www/themes/custom/kvetinysafari/.sass-cache \
+    /srv/www/themes/custom/kvetinysafari/gulp* \
+    /srv/www/themes/custom/kvetinysafari/yarn* \
+    /srv/www/themes/custom/kvetinysafari/package* \
+    /srv/www/themes/custom/sperkysafari/node_modules \
+    /srv/www/themes/custom/sperkysafari/scss \
+    /srv/www/themes/custom/sperkysafari/composer* \
+    /srv/www/themes/custom/sperkysafari/.sass-cache \
+    /srv/www/themes/custom/sperkysafari/gulp* \
+    /srv/www/themes/custom/sperkysafari/yarn* \
+    /srv/www/themes/custom/sperkysafari/package*
 
 FROM lib-tools AS depolyment
 COPY --from=prod /srv ./
