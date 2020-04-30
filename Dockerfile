@@ -115,14 +115,6 @@ RUN \
     rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/*
 
 FROM lib-tools AS libs
-WORKDIR /root/custom/themes/kvetinysafari
-RUN \
-    yarn install && \
-    yarn run gulp
-WORKDIR /root/custom/themes/sperkysafari
-RUN \
-    yarn install && \
-    yarn run gulp
 WORKDIR /srv
 RUN \
     composer install && \
