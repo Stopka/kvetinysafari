@@ -101,7 +101,7 @@ RUN \
         yarn \
         git \
         wget \
-        bsdtar && \
+        unzip && \
     rm -rf /var/lib/apt/lists/* /var/lib/log/* /tmp/* /var/tmp/* && \
     mkdir /srv/tmp && \
     chown www-data:www-data /srv/tmp
@@ -119,7 +119,9 @@ WORKDIR /srv
 RUN \
     composer install && \
     mkdir -p ${DOCROOT}/libraries/ && \
-    wget -qO- https://use.fontawesome.com/releases/v5.7.2/fontawesome-free-5.7.2-web.zip | bsdtar -xvf- -C ${DOCROOT}/libraries/
+    wget -q https://use.fontawesome.com/releases/v5.7.2/fontawesome-free-5.7.2-web.zip && \
+    unzip fontawesome-free-5.7.2-web.zip -d ${DOCROOT}/libraries/ && \
+    rm fontawesome-free-5.7.2-web.zip
 
 FROM build AS prod
 COPY --from=libs /srv ./

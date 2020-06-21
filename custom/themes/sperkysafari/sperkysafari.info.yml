@@ -1,8 +1,7 @@
 name: Šperky Safari
 type: theme
 description: 'Default sperky.kvetinysafari.cz theme'
-version: '8.x-1.0'
-core: '8.x'
+core_version_requirement: ^9
 base theme: bootstrap_barrio
 
 libraries:

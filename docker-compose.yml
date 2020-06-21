@@ -41,6 +41,7 @@ services:
       - 80:80
     volumes:
       - safari-sites:/srv/www/sites
+      - ./sync:/srv/sync
     logging: *default-logging
 volumes:
   safari-mysql-data:
