@@ -89,7 +89,9 @@
     },
     "scripts": {
         "build-assets": [
+            "yarn --cwd ./www/themes/custom/kvetinysafari install",
             "yarn --cwd ./www/themes/custom/kvetinysafari build",
+            "yarn --cwd ./www/themes/custom/sperkysafari install",
             "yarn --cwd ./www/themes/custom/sperkysafari build"
         ],
         "post-install-cmd": [

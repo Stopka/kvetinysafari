@@ -6,6 +6,6 @@
     "homepage": "http://drupal.org/project/bootstrap_sass",
     "license": "GPL-2.0+",
     "require": {
-        "drupal/bootstrap_barrio": "^4.30"
+        "drupal/bootstrap_barrio": "^5.1.2"
     }
 }
