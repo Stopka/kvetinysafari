@@ -87,7 +87,6 @@ CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisor/supervisor
 FROM build AS lib-tools
 RUN \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
-    composer global require "hirak/prestissimo:^0.3" && \
     # and install node
     apt-get update && \
     apt-get install -y --no-install-recommends \
