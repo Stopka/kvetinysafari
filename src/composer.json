@@ -42,6 +42,7 @@
         "drush/drush": "^10.2.2"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-master"
     },
     "conflict": {
         "drupal/drupal": "*"
