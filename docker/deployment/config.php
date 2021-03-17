@@ -18,4 +18,6 @@ return [
 
     'tempDir' => '/tmp',
     'colors' => true,
+    'filePermissions' => 0644,
+    'dirPermissions' => 0755,
 ];
