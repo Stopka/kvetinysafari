@@ -39,7 +39,8 @@
         "drupal/token": "^1.7",
         "custom-theme/kvetinysafari": "^1.0.0",
         "custom-theme/sperkysafari": "^1.0.0",
-        "drush/drush": "^10.2.2"
+        "drush/drush": "^10.2.2",
+        "drupal/matomo": "^1.11"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
