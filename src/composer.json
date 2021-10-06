@@ -31,7 +31,6 @@
         "drupal/ctools": "^3.4",
         "drupal/file_mdm": "^2.1",
         "drupal/fontawesome": "^2.16",
-        "drupal/google_analytics": "^3.1",
         "drupal/pathauto": "^1.8",
         "drupal/redirect": "^1.6",
         "drupal/image_effects": "^3.0",
