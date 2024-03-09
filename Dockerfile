@@ -4,7 +4,7 @@ FROM ubuntu:latest AS build
 
 ENV TZ=Europe/Prague
 
-ENV PHP_VERSION=7.4
+ENV PHP_VERSION=8.1
 ENV PHP_ETC=/etc/php/${PHP_VERSION}
 ENV PHP_MODS_DIR=${PHP_ETC}/mods-available
 ENV PHP_CLI_DIR=${PHP_ETC}/cli
@@ -18,10 +18,14 @@ ENV COMPOSER_MEMORY_LIMIT=-1
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN \
-    # INSTALLATION
+    # INSTALLATION \
+    export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
-        software-properties-common && \
+          ca-certificates  \
+          apt-transport-https \
+          gpg-agent \
+          software-properties-common && \
     add-apt-repository ppa:ondrej/php && \
     apt-get install -y --no-install-recommends \
         curl \
@@ -91,7 +95,7 @@ RUN \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         gpg-agent && \
-    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
@@ -116,11 +120,7 @@ RUN \
 FROM lib-tools AS libs
 WORKDIR /srv
 RUN \
-    composer install && \
-    mkdir -p ${DOCROOT}/libraries/ && \
-    wget -q https://use.fontawesome.com/releases/v5.7.2/fontawesome-free-5.7.2-web.zip && \
-    unzip fontawesome-free-5.7.2-web.zip -d ${DOCROOT}/libraries/ && \
-    rm fontawesome-free-5.7.2-web.zip
+    composer install
 
 FROM build AS prod
 COPY --from=libs /srv ./

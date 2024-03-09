@@ -44,16 +44,18 @@
         "drupal/simple_sitemap": "^3.6",
         "drupal/svg_image": "^1.15"
     },
-    "require-dev": {
-        "roave/security-advisories": "dev-master"
-    },
     "conflict": {
         "drupal/drupal": "*"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true
+        }
     },
     "extra": {
         "drupal-scaffold": {

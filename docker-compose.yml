@@ -20,8 +20,8 @@ services:
         aliases:
           - ${SAFARI_MYSQL_HOST}
     restart: always
-    ports:
-      - 3306:3306
+#    ports:
+#      - 3306:3306
     logging: *default-logging
   safari:
     image: safari/drupal:8
@@ -30,6 +30,7 @@ services:
       #target: dev
     networks:
       - safari-mysql
+      - proxy
     environment:
       - REMOTE=${SAFARI_REMOTE}
       - MAIL_HOST=${SAFARI_MAIL_HOST}
@@ -37,8 +38,12 @@ services:
       - MAIL_USER=${SAFARI_MAIL_USER}
       - MAIL_FROM=${SAFARI_MAIL_FROM}
       - MAIL_PASS=${SAFARI_MAIL_PASSWORD}
-    ports:
-      - 80:80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.atelierstadlerova.rule=Host(`${SAFARI_HOST}`)"
+      - "traefik.http.routers.atelierstadlerova.entrypoints=https"
+      - "traefik.http.routers.atelierstadlerova.tls=true"
+      - "traefik.http.routers.atelierstadlerova.tls.certresolver=local"
     volumes:
       - safari-sites:/srv/www/sites
       - ./sync:/srv/sync
@@ -48,3 +53,6 @@ volumes:
   safari-sites:
 networks:
   safari-mysql:
+  proxy:
+    external: true
+    name: proxy
