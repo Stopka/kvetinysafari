@@ -57,23 +57,31 @@ a.navbar-brand:hover {
         margin: 10px;
         padding: 10px;
         text-align: center;
+        border: 1px solid  $body-bg;
         border-radius: 0.25rem;
-        &:has(a:hover){
-          border: 1px solid  $link-color;
-        }
+
 
         .views-field{
-
           .field-content{
             a{
               display: block;
 
               img{
-                border: $body-bg 1px solid;
+                border: none;
                 border-radius: 0.25rem;
-                &:hover{
-                  border-color: $link-color;
-                }
+              }
+            }
+          }
+        }
+
+        &:has(a:hover){
+          border-color: $link-color;
+          .views-field{
+
+            .field-content{
+              a{
+                text-decoration: underline;
+                color: $link-hover-color;
               }
             }
           }

@@ -1,5 +1,4 @@
 /* OVERWRITE */
-
 section.section {
   padding-top: 15px;
 }
@@ -45,8 +44,7 @@ a.navbar-brand:hover {
 .view-kategorie,
 .view-odkazy{
   .view-content {
-    background-color: $body-color;
-    background-image: url("../images/bg.jpg");
+    background-color: #0000001a;
     border-radius: 0.25rem;
     ul{
       display: flex;
@@ -55,27 +53,35 @@ a.navbar-brand:hover {
 
       li{
 
-        background-color: #ffffffc2;
+        background-color: $body-bg;
         margin: 10px;
         padding: 10px;
         text-align: center;
+        border: 1px solid  $body-bg;
         border-radius: 0.25rem;
-        &:has(a:hover){
-          border: 1px solid  $link-color;
-        }
+
 
         .views-field{
-
           .field-content{
             a{
               display: block;
 
               img{
-                border: #ffffff00 1px solid;
+                border: none;
                 border-radius: 0.25rem;
-                &:hover{
-                  border-color: $link-color;
-                }
+              }
+            }
+          }
+        }
+
+        &:has(a:hover){
+          border-color: $link-color;
+          .views-field{
+
+            .field-content{
+              a{
+                text-decoration: underline;
+                color: $link-hover-color;
               }
             }
           }

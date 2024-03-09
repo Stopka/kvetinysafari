@@ -40,10 +40,10 @@ services:
       - MAIL_PASS=${SAFARI_MAIL_PASSWORD}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.atelierstadlerova.rule=Host(`${SAFARI_HOST}`)"
-      - "traefik.http.routers.atelierstadlerova.entrypoints=https"
-      - "traefik.http.routers.atelierstadlerova.tls=true"
-      - "traefik.http.routers.atelierstadlerova.tls.certresolver=local"
+      - "traefik.http.routers.safari.rule=Host(`${SAFARI_HOST}`)"
+      - "traefik.http.routers.safari.entrypoints=https"
+      - "traefik.http.routers.safari.tls=true"
+      - "traefik.http.routers.safari.tls.certresolver=local"
     volumes:
       - safari-sites:/srv/www/sites
       - ./sync:/srv/sync
