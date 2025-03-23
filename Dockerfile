@@ -4,7 +4,7 @@ FROM ubuntu:latest AS build
 
 ENV TZ=Europe/Prague
 
-ENV PHP_VERSION=8.1
+ENV PHP_VERSION=8.2
 ENV PHP_ETC=/etc/php/${PHP_VERSION}
 ENV PHP_MODS_DIR=${PHP_ETC}/mods-available
 ENV PHP_CLI_DIR=${PHP_ETC}/cli
